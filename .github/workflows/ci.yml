@@ -21,8 +21,14 @@ jobs:
         distribution: 'temurin'
         cache: 'gradle'
 
-    - name: Gradleによるビルド
-      # gradlewに実行権限を付与してから実行
+    - name: プロジェクトのビルド
+      # テストを除外してビルドのみを実行
       run: |
         chmod +x gradlew
-        ./gradlew build
+        ./gradlew build -x test
+
+    - name: 単体テストの実行
+      # テストタスクのみを実行
+      run: ./gradlew test
+
+    
