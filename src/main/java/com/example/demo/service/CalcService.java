@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * 計算サービスクラス
@@ -32,5 +33,10 @@ public class CalcService {
             default:
                 throw new IllegalArgumentException("不正な演算子: " + operator);
         }
+    }
+    // わざとインデントを崩す例
+    @GetMapping("/calc")
+public String showForm() {
+            return "calc"; 
     }
 }
